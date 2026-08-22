@@ -5,7 +5,7 @@
 #include "FileWriter.h"
 
 
-void FileWriter::Write(const std::string& message, const ImportanceLevels& importanceLevel)
+void FileWriter::Write(const std::string& message, const std::string& importanceLevel)
 {
     // Валидация аргументов
     if (_filePath.empty())
@@ -23,7 +23,7 @@ void FileWriter::Write(const std::string& message, const ImportanceLevels& impor
     auto now = std::chrono::system_clock::now();
     std::time_t now_time = std::chrono::system_clock::to_time_t(now);
 
-    file << ToStr(importanceLevel) << " : " << std::put_time(std::localtime(&now_time), "%Y-%m-%d %H:%M:%S") << " : " << message << "\n";
+    file << importanceLevel << " : " << std::put_time(std::localtime(&now_time), "%Y-%m-%d %H:%M:%S") << " : " << message << "\n";
 
     file.close();
 }

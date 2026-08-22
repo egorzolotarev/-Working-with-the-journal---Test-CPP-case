@@ -1,7 +1,6 @@
 #pragma once
 
 #include "IWriter.h"
-#include "ImportanceLevels.h"
 
 class FileWriter: public IWriter {
 public:
@@ -12,7 +11,7 @@ public:
 
     void SetFilePath(const std::string& filePath);
 
-    void Write(const std::string& message, const ImportanceLevels& importanceLevel) override;
+    void Write(const std::string& message, const std::string& importanceLevel) override;
 
 private:
     std::string _filePath;

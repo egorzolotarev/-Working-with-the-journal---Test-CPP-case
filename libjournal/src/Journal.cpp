@@ -24,7 +24,7 @@ void Journal::Write(const std::string& message, const ImportanceLevels& importan
         return;
     }
 
-    _writer->Write(message, importanceLevel);
+    _writer->Write(message, ToStr(importanceLevel));
 }
 
 void Journal::Write(const std::string& message)
